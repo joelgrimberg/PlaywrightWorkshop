@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaRegSave } from "react-icons/fa";
 
 const API_URL = "/api/todos"; // Assuming the API endpoint is defined in todos.js
 
@@ -146,13 +147,13 @@ const TodoApp = () => {
                   <>
                     <div class="flex justify-between mb-1">
                       <span class="text-sm font-medium text-blue-700 dark:text-white">
-                        45%
+                        {todo.percentageCompleted + "%"}
                       </span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                       <div
                         class="bg-blue-600 h-2.5 rounded-full"
-                        style={{ width: "45%" }}
+                        style={{ width: todo.percentageCompleted + "%" }}
                       ></div>
                     </div>
                   </>
@@ -166,21 +167,7 @@ const TodoApp = () => {
                         class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
                         onClick={() => updateTodo(todo.id, todo.description)}
                       >
-                        <svg
-                          className="w-[15px] h-[15px] text-gray-800 dark:text-white"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 16 12"
-                        >
-                          <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M1 5.917 5.724 10.5 15 1.5"
-                          />
-                        </svg>
+                        <FaRegSave />
                       </button>
                     </>
                   ) : (

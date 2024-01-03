@@ -1,7 +1,7 @@
 const todos = [
-  { id: 1, description: "Todo 1", completed: false },
-  { id: 2, description: "Todo 2", completed: true },
-  { id: 3, description: "Todo 3", completed: false },
+  { id: 1, description: "Todo 1", completed: false, percentageCompleted: 0 },
+  { id: 2, description: "Todo 2", completed: true, percentageCompleted: 100 },
+  { id: 3, description: "Todo 3", completed: false, percentageCompleted: 0 },
 ];
 
 let nextId = todos.length + 1;
@@ -21,6 +21,7 @@ export default function handler(req, res) {
         break;
       }
       newTodo.id = nextId++;
+      newTodo.percentageCompleted = 0;
       todos.push(newTodo);
       res.status(201).json(newTodo);
       break;
