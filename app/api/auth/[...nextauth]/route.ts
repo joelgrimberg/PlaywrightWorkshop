@@ -1,5 +1,4 @@
 import { prisma } from "@/prisma/db";
-import { compare } from "bcrypt";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -16,7 +15,6 @@ export const authOptions: NextAuthOptions = {
           label: "Email",
           type: "email",
           placeholder: "example@example.com",
-          //For not customized SignIn page
         },
         password: { label: "Password", type: "password" },
       },
@@ -33,12 +31,8 @@ export const authOptions: NextAuthOptions = {
 
         if (!user) return null;
 
-        const isPasswordValid = await compare(
-          credentials.password,
-          user.password
-        );
-
-        if (!isPasswordValid) return null;
+        // ⚠️ WARNING: DO NOT do this in real-world development
+        if (user.password !== credentials?.password) return null;
 
         //for not confirmed users.
         if (!user.active) {
