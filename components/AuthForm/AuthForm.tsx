@@ -80,7 +80,6 @@ export default function AuthForm(props: AuthFormProps) {
       throw error;
     }
   };
-
   return (
     <form
       onSubmit={page === "login" ? handleLogin : handleRegister}

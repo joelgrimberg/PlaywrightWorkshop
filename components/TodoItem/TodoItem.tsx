@@ -74,7 +74,7 @@ export default function TodoItem(props: TodoItemProps) {
             animate="visible"
             //animations
 
-            className="absolute left-0 top-0 bg-red-600 w-full h-2"
+            className="absolute left-0 top-0 bg-orange-600 w-full h-2"
           />
         )}
         <input
@@ -101,14 +101,10 @@ export default function TodoItem(props: TodoItemProps) {
           className="flex"
           onClick={() => router.push(`${AppRoutes.Update}/${id}`)}
         >
-          <AiFillEdit fontSize={25} className="text-yellow-300" />
+          <AiFillEdit fontSize={25} className="text-black-300" />
         </button>
-        <button
-          // disabled={deleteLoading}
-          className="flex"
-          onClick={() => deleteMutation.mutate(id)}
-        >
-          <AiOutlineDelete fontSize={25} className="text-red-600" />
+        <button className="flex" onClick={() => deleteMutation.mutate(id)}>
+          <AiOutlineDelete fontSize={25} className="text-black-600" />
         </button>
       </div>
     </li>
