@@ -10,8 +10,6 @@ async function main() {
       password: "test",
     },
   });
-
-  // console.log(user)
 }
 
 main()

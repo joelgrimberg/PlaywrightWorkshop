@@ -47,22 +47,15 @@ export const authOptions: NextAuthOptions = {
         };
       },
     }),
-
-    // ...add more providers here.
   ],
   callbacks: {
     session: ({ session, token }) => {
-      // console.log('Session Callback', { session, token })
-
-      //In types.d.ts folder id type aded.Otherwise ts does not see the id as property.
       return {
         ...session,
         id: token.id,
-        //be aware that id is string typed.
       };
     },
     jwt: ({ token, user }) => {
-      // console.log('JWT Callback', { token, user })
       if (user) {
         return {
           ...token,

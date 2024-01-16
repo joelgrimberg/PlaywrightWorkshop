@@ -92,6 +92,7 @@ export default function AuthForm(props: AuthFormProps) {
           value={userInfo.name}
           onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
           className="input-primary"
+          aria-label="Name"
         />
       )}
 
@@ -103,6 +104,7 @@ export default function AuthForm(props: AuthFormProps) {
         type="email"
         placeholder="email@gmail.com"
         className="input-primary"
+        aria-label="Email"
       />
 
       <input
@@ -113,9 +115,15 @@ export default function AuthForm(props: AuthFormProps) {
         type="password"
         placeholder="********"
         className="input-primary"
+        aria-label="Password"
       />
 
-      <button disabled={loading} type="submit" className="btn-primary">
+      <button
+        disabled={loading}
+        type="submit"
+        className="btn-primary"
+        aria-label={page === "login" ? signInLabels.event : signUpLabels.event}
+      >
         {page === "login" ? signInLabels.event : signUpLabels.event}
       </button>
 

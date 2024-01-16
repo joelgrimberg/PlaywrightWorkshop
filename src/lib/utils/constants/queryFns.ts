@@ -1,7 +1,9 @@
+import { error } from "console";
+
 export async function getTodosFn() {
   const res = await fetch(`/api/todos`);
   if (!res.ok) {
-    console.log(res);
+    throw new Error("Failed to fetch todos");
   } else {
     return await res.json();
   }
@@ -88,7 +90,7 @@ export async function getSingleTodoFn(id: string) {
   const res = await fetch(`/api/todos/${id}`);
 
   if (!res.ok) {
-    console.log(res);
+    throw new Error("Unable to fetch ToDo");
   }
 
   return await res.json();
