@@ -63,6 +63,7 @@ export default function TodoItem(props: TodoItemProps) {
 
   return (
     <li
+      aria-label="Todo Item"
       className={`flex relative gap-1 items-center border-2  border-black
        p-2 mb-2 last:mb-0 rounded `}
     >
@@ -86,6 +87,7 @@ export default function TodoItem(props: TodoItemProps) {
           type="checkbox"
           checked={checked}
           className="cursor-pointer peer"
+          aria-label="Complete"
         />
         <label
           htmlFor={id.toString()}
@@ -100,10 +102,15 @@ export default function TodoItem(props: TodoItemProps) {
           disabled={updateLoading}
           className="flex"
           onClick={() => router.push(`${AppRoutes.Update}/${id}`)}
+          aria-label="Edit"
         >
           <AiFillEdit fontSize={25} className="text-black-300" />
         </button>
-        <button className="flex" onClick={() => deleteMutation.mutate(id)}>
+        <button
+          className="flex"
+          onClick={() => deleteMutation.mutate(id)}
+          aria-label="Delete"
+        >
           <AiOutlineDelete fontSize={25} className="text-black-600" />
         </button>
       </div>

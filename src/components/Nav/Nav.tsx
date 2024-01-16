@@ -64,6 +64,7 @@ export default function Nav(props: NavProps) {
               }`}
             >
               <span className="hidden md:inline mr-1">{title}</span>
+              <button aria-label={title}></button>
               <button.icon className="inline" fontSize={20} />
             </Link>
           );
@@ -71,6 +72,7 @@ export default function Nav(props: NavProps) {
 
         return (
           <button
+            aria-label={title}
             key={title}
             onClick={method}
             className="btn-primary flex items-center"
