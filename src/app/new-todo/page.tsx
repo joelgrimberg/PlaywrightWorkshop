@@ -19,7 +19,9 @@ export default function NewTodoPage() {
     mutationFn: createTodoFn,
     onSuccess: () => {
       router.push(AppRoutes.Home);
-      queryClient.invalidateQueries(["todos"]);
+      queryClient.invalidateQueries({
+        queryKey: ["todos"]
+      });
     },
   });
 

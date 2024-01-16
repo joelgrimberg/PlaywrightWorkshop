@@ -1,11 +1,8 @@
 import Nav from "@/components/Nav/Nav";
 import Providers from "@/lib/utils/Providers/Provider.client";
 import { AppRoutes } from "@/lib/utils/constants/AppRoutes";
-import GithubSvg from "@/public/github.svg";
-import NextSvg from "@/public/next.svg";
 import { getServerSession } from "next-auth";
 import { Inter } from "next/font/google";
-import Image from "next/image";
 import Link from "next/link";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import "./globals.css";

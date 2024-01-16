@@ -23,16 +23,6 @@ export default function UpdateTodoPage() {
     queryFn: () => getSingleTodoFn(id.toString()),
   });
 
-  // const { mutateAsync: updateTodo, isLoading: updateLoading } = useMutation({
-  //   mutationFn: () =>
-  //     updateTodoFn({ id, title, importance, complete: data?.complete! }),
-  //   // onError: (err: any) => toast.error(err.response.data.error),
-  //   onSuccess: () => {
-  //     queryClient.invalidateQueries({ queryKey: ['todos'] })
-  //     router.push(AppRoutes.Home)
-  //   }
-  // })
-
   const updateTodoMutation = useMutation({
     //@ts-ignore
     mutationFn: updateTodoFn,

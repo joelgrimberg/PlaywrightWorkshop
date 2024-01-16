@@ -26,8 +26,6 @@ export async function createTodoFn(newTodo: NewTodo) {
     if (!res.ok) {
       throw new Error("Failed to create todo");
     }
-
-    // Deletion was successful, redirect the home page
   } catch (err) {
     console.error(err);
   }
