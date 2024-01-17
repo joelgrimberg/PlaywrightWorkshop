@@ -91,6 +91,7 @@ export default function UpdateTodoPage() {
 
   return (
     <motion.section
+      data-testid="update-todo-page"
       //animations
       variants={containerVariant}
       initial="hidden"
@@ -109,11 +110,13 @@ export default function UpdateTodoPage() {
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           className="input-primary"
+          aria-label="Title"
         />
         <select
           value={importance}
           onChange={(e) => setImportance(e.target.value)}
           className="select-primary"
+          aria-label="Importance"
         >
           <option value="" disabled>
             Select Importance
@@ -123,12 +126,13 @@ export default function UpdateTodoPage() {
         </select>
         <div className="flex gap-1 justify-end">
           <Link href=".." className="btn-primary">
-            Cancel
+            <button aria-label="Cancel">Cancel</button>
           </Link>
           <button
             disabled={updateTodoMutation.isLoading}
             type="submit"
             className="btn-primary"
+            aria-label="Update"
           >
             Update
           </button>

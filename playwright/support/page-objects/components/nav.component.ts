@@ -1,6 +1,6 @@
 import type { Locator, Page } from "@playwright/test";
 
-export class NavPage {
+export class NavComponent {
   private readonly page: Page;
   private component: Locator;
   private signIn: Locator;
@@ -21,6 +21,7 @@ export class NavPage {
 
   public async clickNewTodo(): Promise<void> {
     await this.newTodo.click();
+    await this.page.waitForURL("**/new-todo");
   }
 
   public async clickLogout(): Promise<void> {

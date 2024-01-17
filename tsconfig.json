@@ -29,6 +29,13 @@
       "@/prisma/*": [
         "./prisma/*"
       ],
+      "@/test/pages/*": [
+        "./playwright/support/page-objects/pages/*"
+      ],
+      "@/test/fixtures/*": [
+        "./playwright/support/fixtures/*"
+      ],
+
     },
     "forceConsistentCasingInFileNames": true
   },

@@ -63,7 +63,8 @@ export default function TodoItem(props: TodoItemProps) {
 
   return (
     <li
-      aria-label="Todo Item"
+      data-testid="TodoItem"
+      id={id.toString()}
       className={`flex relative gap-1 items-center border-2  border-black
        p-2 mb-2 last:mb-0 rounded `}
     >
@@ -79,7 +80,6 @@ export default function TodoItem(props: TodoItemProps) {
           />
         )}
         <input
-          id={id.toString()}
           onChange={(e) => {
             setChecked(e.target.checked);
             updateTodo(e.target.checked);
@@ -90,6 +90,7 @@ export default function TodoItem(props: TodoItemProps) {
           aria-label="Complete"
         />
         <label
+          aria-label="Todo Description"
           htmlFor={id.toString()}
           className="peer-checked:line-through cursor-pointer peer-checked:text-secondary w-[95%] whitespace-normal break-words"
         >

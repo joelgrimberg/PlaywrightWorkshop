@@ -1,11 +1,11 @@
 import type { Locator, Page } from "@playwright/test";
 
-export class AuthForm {
-  private page: Page;
+export class AuthFormComponent {
+  private readonly page: Page;
   private component: Locator;
-  email: Locator;
-  password: Locator;
-  submit: Locator;
+  private email: Locator;
+  private password: Locator;
+  private submit: Locator;
 
   constructor(page: Page) {
     this.page = page;

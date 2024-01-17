@@ -5,7 +5,6 @@ import { signOut } from "next-auth/react";
 import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AiOutlineQuestion } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { IoCreateOutline } from "react-icons/io5";
 import { IconType } from "react-icons/lib";
@@ -62,9 +61,11 @@ export default function Nav(props: NavProps) {
               className={`btn-primary flex items-center ${
                 pathname === route && "pointer-events-none opacity-20"
               }`}
+              passHref
             >
-              <span className="hidden md:inline mr-1">{title}</span>
-              <button aria-label={title}></button>
+              <button aria-label={title} className="hidden md:inline mr-1">
+                {title}
+              </button>
               <button.icon className="inline" fontSize={20} />
             </Link>
           );

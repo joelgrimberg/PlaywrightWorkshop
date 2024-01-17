@@ -26,7 +26,7 @@ export default function TodosContainer() {
     );
 
   return (
-    <ul aria-label="Todo List" className="w-full md:w-2/3">
+    <ul data-testid="TodoList" className="w-full md:w-2/3">
       {data?.map((todo: Todo) => (
         <TodoItem key={todo.id} {...todo} />
       ))}

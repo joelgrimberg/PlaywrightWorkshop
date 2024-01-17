@@ -20,7 +20,7 @@ export default function NewTodoPage() {
     onSuccess: () => {
       router.push(AppRoutes.Home);
       queryClient.invalidateQueries({
-        queryKey: ["todos"]
+        queryKey: ["todos"],
       });
     },
   });
@@ -43,6 +43,7 @@ export default function NewTodoPage() {
 
   return (
     <motion.section
+      data-testid="new-todo-page"
       variants={containerVariant}
       initial="hidden"
       animate="visible"
@@ -60,11 +61,13 @@ export default function NewTodoPage() {
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           className="input-primary"
+          aria-label="Title"
         />
         <select
           value={importance}
           onChange={(e) => setImportance(e.target.value)}
           className="select-primary"
+          aria-label="Importance"
         >
           <option value="" disabled>
             Select Importance
@@ -75,8 +78,14 @@ export default function NewTodoPage() {
         <div className="flex gap-1 justify-end">
           <Link href=".." className="btn-primary">
             Cancel
+            <button aria-label="Cancel"></button>
           </Link>
-          <button disabled={isCreating} type="submit" className="btn-primary">
+          <button
+            disabled={isCreating}
+            type="submit"
+            className="btn-primary"
+            aria-label="Create"
+          >
             Create
           </button>
         </div>
