@@ -4,8 +4,6 @@ import { Todo } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Loading/Loading";
 import TodoItem from "../TodoItem/TodoItem";
-import Image from "next/image";
-import gibly from "../../public/gibli.gif";
 
 export default function TodosContainer() {
   const { data, isLoading } = useQuery<Todo[]>({
@@ -26,13 +24,6 @@ export default function TodosContainer() {
         <div className="flex h-[40vh] items-center justify-center">
           <p className="text-center text-h3">No Todos found.</p>
         </div>
-        <Image
-          src={gibly}
-          aria-label="Gibli"
-          width={500}
-          height={500}
-          alt="Gibli"
-        />
       </>
     );
 

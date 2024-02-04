@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
+import gibly from "../../public/gibli.gif";
 
 export type PageType = "login" | "register";
 
@@ -39,9 +41,15 @@ export default function AuthPage() {
       initial="hidden"
       animate="visible"
       //animation
-
       className="flex flex-col justify-center items-center h-[60vh] w-full"
     >
+      <Image
+        src={gibly}
+        aria-label="Gibli"
+        width={500}
+        height={500}
+        alt="Gibli"
+      />
       <h2 className="text-h2 text-center mb-2">
         {page === "login" ? signInLabels.header : signUpLabels.header}
       </h2>
