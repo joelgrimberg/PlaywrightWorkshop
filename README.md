@@ -1,2 +1,0 @@
-# PlaywrightWorkshop
-Workshop for Playwright
