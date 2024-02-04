@@ -4,7 +4,7 @@ import getQueryClient from "@/lib/tanstack-query/getQueryClient";
 import { prisma } from "@/prisma/db";
 import { dehydrate } from "@tanstack/query-core";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import { authOptions } from "../../auth";
 
 async function getTodosServerFn() {
   const session = await getServerSession(authOptions);

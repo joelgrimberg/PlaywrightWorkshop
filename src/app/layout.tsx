@@ -4,8 +4,8 @@ import { AppRoutes } from "@/lib/utils/constants/AppRoutes";
 import { getServerSession } from "next-auth";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 import "./globals.css";
+import { authOptions } from "../../auth";
 
 const inter = Inter({ subsets: ["latin"] });
 

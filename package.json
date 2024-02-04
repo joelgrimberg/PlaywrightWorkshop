@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.11.3",
+    "@types/node": "^20.11.16",
     "axe-playwright": "^2.0.1",
     "eslint-plugin-playwright": "^0.22.2",
     "prisma": "5.8.1",
