@@ -3,6 +3,7 @@ import { AppRoutes } from "@/lib/utils/constants/AppRoutes";
 import { pageLabels } from "@/lib/utils/constants/pageLabels";
 import { signIn } from "next-auth/react";
 import { FormEvent, FormEventHandler, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 interface AuthFormProps {
   page: PageType;
@@ -69,11 +70,23 @@ export default function AuthForm(props: AuthFormProps) {
           password,
         }),
       });
+      console.log(res);
 
       if (res.ok) {
-        // Todo creation was successful, redirect
+        // account registered
         setLoading(false);
         setPage("login");
+      } else if (res.status === 409) {
+        toast.error("🦄 User Already exists", {
+          position: "top-right",
+          autoClose: false,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "dark",
+        });
       }
     } catch (error) {
       setLoading(false);
@@ -81,59 +94,63 @@ export default function AuthForm(props: AuthFormProps) {
     }
   };
   return (
-    <form
-      onSubmit={page === "login" ? handleLogin : handleRegister}
-      className="flex flex-col w-2/3 md:w-1/3 gap-2"
-      {...formProps}
-    >
-      {page === "register" && (
-        <input
-          placeholder="name"
-          value={userInfo.name}
-          onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
-          className="input-primary"
-          aria-label="Name"
-        />
-      )}
-
-      <input
-        value={userInfo.email}
-        onChange={({ target }) =>
-          setUserInfo({ ...userInfo, email: target.value })
-        }
-        type="email"
-        placeholder="email@gmail.com"
-        className="input-primary"
-        aria-label="Email"
-      />
-
-      <input
-        value={userInfo.password}
-        onChange={({ target }) =>
-          setUserInfo({ ...userInfo, password: target.value })
-        }
-        type="password"
-        placeholder="********"
-        className="input-primary"
-        aria-label="Password"
-      />
-
-      <button
-        disabled={loading}
-        type="submit"
-        className="btn-primary"
-        aria-label={page === "login" ? signInLabels.event : signUpLabels.event}
+    <>
+      <form
+        onSubmit={page === "login" ? handleLogin : handleRegister}
+        className="flex flex-col w-2/3 md:w-1/3 gap-2"
+        {...formProps}
       >
-        {page === "login" ? signInLabels.event : signUpLabels.event}
-      </button>
+        {page === "register" && (
+          <input
+            placeholder="name"
+            value={userInfo.name}
+            onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
+            className="input-primary"
+            aria-label="Name"
+          />
+        )}
 
-      {page === "login"}
-      <p>
-        {page === "login" ? signInLabels.formFooter : signUpLabels.formFooter}
-        <span className="underline cursor-pointer" onClick={handlePageChange}>
-          {page === "login" ? signUpLabels.event : signInLabels.event}
-        </span>
-      </p>
-    </form>
+        <input
+          value={userInfo.email}
+          onChange={({ target }) =>
+            setUserInfo({ ...userInfo, email: target.value })
+          }
+          type="email"
+          placeholder="email@gmail.com"
+          className="input-primary"
+          aria-label="Email"
+        />
+
+        <input
+          value={userInfo.password}
+          onChange={({ target }) =>
+            setUserInfo({ ...userInfo, password: target.value })
+          }
+          type="password"
+          placeholder="********"
+          className="input-primary"
+          aria-label="Password"
+        />
+
+        <button
+          disabled={loading}
+          type="submit"
+          className="btn-primary"
+          aria-label={
+            page === "login" ? signInLabels.event : signUpLabels.event
+          }
+        >
+          {page === "login" ? signInLabels.event : signUpLabels.event}
+        </button>
+
+        {page === "login"}
+        <p>
+          {page === "login" ? signInLabels.formFooter : signUpLabels.formFooter}
+          <span className="underline cursor-pointer" onClick={handlePageChange}>
+            {page === "login" ? signUpLabels.event : signInLabels.event}
+          </span>
+        </p>
+      </form>
+    </>
   );
 }

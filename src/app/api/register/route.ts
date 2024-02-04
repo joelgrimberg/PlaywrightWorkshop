@@ -10,8 +10,6 @@ export async function POST(req: Request) {
     );
   }
 
-  //todo: handle error for cyrpted password hash method.
-
   try {
     const user = await prisma.user.create({
       data: {
@@ -23,6 +21,10 @@ export async function POST(req: Request) {
 
     return new Response(JSON.stringify(user), { status: 201 });
   } catch (error) {
-    return new Response("Failed to create user", { status: 500 });
+    const data = {
+      error: "User already exists",
+    };
+
+    return new Response(JSON.stringify(data), { status: 409 });
   }
 }

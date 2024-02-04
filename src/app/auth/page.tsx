@@ -10,6 +10,8 @@ import { redirect } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import gibly from "../../public/gibli.gif";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export type PageType = "login" | "register";
 
@@ -34,31 +36,34 @@ export default function AuthPage() {
   }
 
   return (
-    <motion.section
-      data-testid="auth-page"
-      key={page}
-      variants={containerVariant}
-      initial="hidden"
-      animate="visible"
-      //animation
-      className="flex flex-col justify-center items-center h-[60vh] w-full"
-    >
-      <Image
-        src={gibly}
-        aria-label="Gibli"
-        width={500}
-        height={500}
-        alt="Gibli"
-      />
-      <h2 className="text-h2 text-center mb-2">
-        {page === "login" ? signInLabels.header : signUpLabels.header}
-      </h2>
-      <AuthForm
-        page={page}
-        setPage={setPage}
-        userInfo={userInfo}
-        setUserInfo={setUserInfo}
-      />
-    </motion.section>
+    <>
+      <ToastContainer />
+      <motion.section
+        data-testid="auth-page"
+        key={page}
+        variants={containerVariant}
+        initial="hidden"
+        animate="visible"
+        //animation
+        className="flex flex-col justify-center items-center h-[60vh] w-full"
+      >
+        <Image
+          src={gibly}
+          aria-label="Gibli"
+          width={500}
+          height={500}
+          alt="Gibli"
+        />
+        <h2 className="text-h2 text-center mb-2">
+          {page === "login" ? signInLabels.header : signUpLabels.header}
+        </h2>
+        <AuthForm
+          page={page}
+          setPage={setPage}
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
+        />
+      </motion.section>
+    </>
   );
 }
