@@ -70,8 +70,6 @@ export default function AuthForm(props: AuthFormProps) {
           password,
         }),
       });
-      console.log(res);
-
       if (res.ok) {
         // account registered
         setLoading(false);

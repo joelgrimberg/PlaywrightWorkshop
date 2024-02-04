@@ -10,7 +10,6 @@ test("create Todo", async ({ page }) => {
   await page.goto("/");
   await homePage.authComponent.login("test@test.nl", "test");
   const createdTodo = await newTodoPage.createNewTodo("test1234", "Important");
-  console.log(createdTodo);
   await expect(
     await homePage.todoContainer.todoItemComponent.getTodo(createdTodo.id)
   ).toHaveText("test1234");
@@ -24,7 +23,6 @@ test("update Todo", async ({ page }) => {
   await page.goto("/");
   await homePage.authComponent.login("test@test.nl", "test");
   const createdTodo = await newTodoPage.createNewTodo("test57890", "Important");
-  console.log(createdTodo);
   await homePage.todoContainer.todoItemComponent.editTodo(createdTodo.id);
   await updateTodoPage.updateTodoDetails(
     createdTodo.id,
