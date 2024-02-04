@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
+    "types": ["axe-playwright"],
     "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,29 +20,13 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@/prisma/*": [
-        "./prisma/*"
-      ],
-      "@/test/pages/*": [
-        "./playwright/support/page-objects/pages/*"
-      ],
-      "@/test/fixtures/*": [
-        "./playwright/support/fixtures/*"
-      ],
-
+      "@/*": ["./src/*"],
+      "@/prisma/*": ["./prisma/*"],
+      "@/test/pages/*": ["./playwright/support/page-objects/pages/*"],
+      "@/test/fixtures/*": ["./playwright/support/fixtures/*"]
     },
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
