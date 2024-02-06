@@ -75,7 +75,7 @@ export default function AuthForm(props: AuthFormProps) {
         setLoading(false);
         setPage("login");
       } else if (res.status === 409) {
-        toast.error("🦄 User Already exists", {
+        toast.error("User Already exists", {
           position: "top-right",
           autoClose: false,
           hideProgressBar: false,
