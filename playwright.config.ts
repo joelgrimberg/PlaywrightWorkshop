@@ -16,20 +16,35 @@ export default defineConfig({
     headless: false,
   },
   projects: [
+    { name: "setup", testMatch: /.*\.setup\.ts/ },
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      name: "assignment1",
+      testDir: "./playwright/tests/assignment1",
     },
-
-    // {
-    //   name: "firefox",
-    //   use: { ...devices["Desktop Firefox"] },
-    // },
-
-    // {
-    //   name: "webkit",
-    //   use: { ...devices["Desktop Safari"] },
-    // },
+    {
+      name: "assignment2",
+      testDir: "./playwright/tests/assignment2",
+    },
+    {
+      name: "assignment3",
+      testDir: "./playwright/tests/assignment3",
+      dependencies: ["setup"],
+      use: {
+        storageState: "playwright/.auth/user.json",
+      },
+    },
+    {
+      name: "assignment4",
+      testDir: "./playwright/tests/assignment4",
+    },
+    {
+      name: "assignment5",
+      testDir: "./playwright/tests/assignment5",
+    },
+    {
+      name: "assignment6",
+      testDir: "./playwright/tests/assignment6",
+    },
   ],
   webServer: {
     command: "npm run dev",
