@@ -25,7 +25,7 @@ export class NewTodoPage {
   async createNewTodo(
     title: string,
     importance = "Important" || "Not Important"
-  ) {
+  ): Promise<string> {
     await this.nav.clickNewTodo();
     await this.title.fill(title);
     await this.importance.selectOption({ label: importance });
@@ -34,6 +34,7 @@ export class NewTodoPage {
     );
     await this.create.click();
     const response = await (await responsePromise).json();
-    return response;
+    console.log(response);
+    return response.id;
   }
 }

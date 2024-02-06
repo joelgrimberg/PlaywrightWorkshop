@@ -1,4 +1,4 @@
-import { AccountGenerator } from "@/test/fixtures/accountGenerator.fixture";
+import { Generator } from "../../support/helpers/generator";
 import {
   expect,
   test as setup,
@@ -7,8 +7,8 @@ import {
 const authFile = "playwright/.auth/user.json";
 
 setup("authenticate", async ({ page }) => {
-  const generator = new AccountGenerator();
-  const user = generator.createRandomUser();
+  const generator = new Generator();
+  const user = generator.generateUser();
 
   await page.goto(
     "http://localhost:3000/auth?callbackUrl=http%3A%2F%2Flocalhost%3A3000%2F"

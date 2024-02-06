@@ -36,6 +36,10 @@ export default defineConfig({
     {
       name: "assignment4",
       testDir: "./playwright/tests/assignment4",
+      dependencies: ["setup"],
+      use: {
+        storageState: "playwright/.auth/user.json",
+      },
     },
     {
       name: "assignment5",

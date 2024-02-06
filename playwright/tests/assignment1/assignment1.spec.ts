@@ -1,9 +1,10 @@
-import { AccountGenerator } from "@/test/fixtures/accountGenerator.fixture";
-import { expect, test } from "@playwright/test";
+import { Generator } from "../../support/helpers/generator";
+import { test } from "../../support/fixtures/test.fixture";
+import { expect } from "@playwright/test";
 
 test("Assignment 1A", async ({ page }) => {
-  const generator = new AccountGenerator();
-  const user = generator.createRandomUser();
+  const generator = new Generator();
+  const user = generator.generateUser();
 
   await page.goto(
     "http://localhost:3000/auth?callbackUrl=http%3A%2F%2Flocalhost%3A3000%2F"
@@ -25,8 +26,8 @@ test("Assignment 1A", async ({ page }) => {
 });
 
 test("Assignment 1B", async ({ page }) => {
-  const generator = new AccountGenerator();
-  const user = generator.createRandomUser();
+  const generator = new Generator();
+  const user = generator.generateUser();
 
   await page.goto(
     "http://localhost:3000/auth?callbackUrl=http%3A%2F%2Flocalhost%3A3000%2F"
