@@ -3,12 +3,14 @@ import { HomePage } from "./pages/home.page";
 import { AuthPage } from "./pages/auth.page";
 import { NewTodoPage } from "./pages/newTodo.page";
 import { UpdateTodoPage } from "./pages/updateTodo.page";
+import { AccountGenerator } from "../fixtures/accountGenerator.fixture";
 
 export const test = baseTest.extend<{
   home: HomePage;
   auth: AuthPage;
   newTodo: NewTodoPage;
   updateTodo: UpdateTodoPage;
+  generator: AccountGenerator;
 }>({
   home: async ({ page }, use) => {
     await use(new HomePage(page));
@@ -21,5 +23,8 @@ export const test = baseTest.extend<{
   },
   updateTodo: async ({ page }, use) => {
     await use(new UpdateTodoPage(page));
+  },
+  generator: async ({}, use) => {
+    await use(new AccountGenerator());
   },
 });
