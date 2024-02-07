@@ -10,12 +10,9 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
 
   workers: process.env.CI ? 1 : 1,
-  reporter: "html",
   use: {
     baseURL: "http://localhost:3000",
-    trace: "retain-on-failure",
-    // headless: !!process.env.CI,
-    headless: false,
+    headless: !!process.env.CI,
   },
   projects: [
     { name: "setup", testMatch: /.*\.setup\.ts/ },
