@@ -9,7 +9,8 @@
     "lint": "next lint",
     "postinstall": "prisma generate",
     "test": "playwright test",
-    "post": "prisma migrate reset --force"
+    "post": "prisma migrate reset --force",
+    "snapshot-update": " docker run -v ./:/workshop/ -it --rm --ipc=host mcr.microsoft.com/playwright:v1.41.1-jammy /bin/bash  "
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.0",
@@ -31,9 +32,9 @@
     "tailwindcss": "3.4.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.40.1",
+    "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.16",
-    "axe-playwright": "^2.0.1",
+    "@axe-core/playwright": "^4.8.4",
     "eslint-plugin-playwright": "^0.22.2",
     "prisma": "5.8.1",
     "ts-node": "^10.9.2",
