@@ -9,7 +9,8 @@
     "lint": "next lint",
     "postinstall": "prisma generate",
     "test": "playwright test",
-    "post": "prisma migrate reset --force"
+    "post": "prisma migrate reset --force",
+    "snapshot-update": " docker run -v ./:/workshop/ -it --rm --ipc=host mcr.microsoft.com/playwright:v1.41.1-jammy /bin/bash  "
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.0",
