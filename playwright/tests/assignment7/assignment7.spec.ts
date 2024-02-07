@@ -27,7 +27,7 @@ test("Assignment 7", async ({ page, newTodo, generator }) => {
 
   await test.step("Run Axe accesability scan", async () => {
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); // 4
-    console.log(accessibilityScanResults);
+    //console.log(accessibilityScanResults);
     expect(accessibilityScanResults.violations).toEqual([]); // 5
   });
 });
