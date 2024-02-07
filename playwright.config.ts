@@ -15,7 +15,7 @@ export default defineConfig({
     baseURL: "http://localhost:3000",
     trace: "retain-on-failure",
     // headless: !!process.env.CI,
-    headless: true,
+    headless: false,
   },
   projects: [
     { name: "setup", testMatch: /.*\.setup\.ts/ },
