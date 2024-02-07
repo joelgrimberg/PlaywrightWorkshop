@@ -7,7 +7,7 @@ let firstTodo: todo;
 let secondTodo: todo;
 let thirdTodo: todo;
 
-test("Assignment 7", async ({ page, newTodo, generator, home }) => {
+test("Assignment 7", async ({ page, newTodo, generator }) => {
   await test.step("Generate new todo", async () => {
     firstTodo = generator.generateTodo();
     secondTodo = generator.generateTodo();
