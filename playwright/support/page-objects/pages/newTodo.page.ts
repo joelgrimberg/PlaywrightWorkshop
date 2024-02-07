@@ -34,7 +34,6 @@ export class NewTodoPage {
     );
     await this.create.click();
     const response = await (await responsePromise).json();
-    console.log(response);
     return response.id;
   }
 }

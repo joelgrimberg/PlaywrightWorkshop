@@ -49,6 +49,14 @@ export default defineConfig({
       name: "assignment6",
       testDir: "./playwright/tests/assignment6",
     },
+    {
+      name: "assignment7",
+      testDir: "./playwright/tests/assignment7",
+      dependencies: ["setup"],
+      use: {
+        storageState: "playwright/.auth/user.json",
+      },
+    },
   ],
   webServer: {
     command: "npm run dev",
